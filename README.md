@@ -15,6 +15,7 @@
 > 🎓 Projeto desenvolvido no contexto do **Laboratório de Experimentação IBM Bob**, com foco na aplicação de tecnologias emergentes e Inteligência Artificial para solucionar desafios reais relacionados à gestão financeira empresarial.
 
 O **SplitAgent** integra uma proposta de experimentação tecnológica, explorando o potencial da Inteligência Artificial e de arquiteturas multiagentes no desenvolvimento de soluções inteligentes para análise, simulação e apoio à tomada de decisões financeiras.
+
 Este repositório contém o **Frontend do SplitAgent**, responsável pela interface de interação entre os usuários e os recursos disponibilizados pela plataforma.
 
 Acesse aqui: [SplitAgent](https://splitagent.vercel.app/)
