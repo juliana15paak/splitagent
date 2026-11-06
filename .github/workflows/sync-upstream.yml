@@ -19,36 +19,21 @@ jobs:
         with:
           ref: main
 
-      - name: Checkout original repository
-        uses: actions/checkout@v5
-        with:
-          repository: Tiasgod/IBM-SplitAgent
-          ref: main
-          path: upstream
+      - name: Clone original repository
+        run: |
+          git clone --depth 1 --branch main \
+            https://github.com/Tiasgod/IBM-SplitAgent.git \
+            "$RUNNER_TEMP/IBM-SplitAgent"
 
       - name: Synchronize frontend
         run: |
-          set +e
-
-          rsync -a --delete \
-            --exclude='.git/' \
-            --exclude='.github/' \
-            upstream/frontend/ ./
-
-          STATUS=$?
-
-          if [ "$STATUS" -eq 24 ]; then
-            echo "Some files disappeared. Retrying synchronization..."
-
-            rsync -a --delete \
-              --exclude='.git/' \
-              --exclude='.github/' \
-              upstream/frontend/ ./
-
-            STATUS=$?
-          fi
-
-          exit "$STATUS"
+          rsync -av --delete \
+            --exclude='/.git/' \
+            --exclude='/.github/' \
+            --exclude='/README.md' \
+            --exclude='/.vercel/' \
+            "$RUNNER_TEMP/IBM-SplitAgent/frontend/" \
+            ./
 
       - name: Commit and push changes
         run: |
@@ -63,4 +48,5 @@ jobs:
           fi
 
           git commit -m "chore: sync frontend from IBM-SplitAgent"
+
           git push origin main
