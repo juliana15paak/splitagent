@@ -1,5 +1,5 @@
  <div align="center">
-  <img width="192" height="192" alt="icon-512" src="https://github.com/user-attachments/assets/6d592b11-cd7f-4879-8eff-643a254c9f76" />
+  <img width="150" height="150" alt="icon" src="https://github.com/user-attachments/assets/6d592b11-cd7f-4879-8eff-643a254c9f76" />
   <br><br>
   <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
