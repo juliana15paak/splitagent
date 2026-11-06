@@ -11,16 +11,16 @@ permissions:
 
 jobs:
   sync:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout destination repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: main
 
       - name: Checkout original repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: Tiasgod/IBM-SplitAgent
           ref: main
@@ -28,10 +28,27 @@ jobs:
 
       - name: Synchronize frontend
         run: |
+          set +e
+
           rsync -a --delete \
             --exclude='.git/' \
             --exclude='.github/' \
             upstream/frontend/ ./
+
+          STATUS=$?
+
+          if [ "$STATUS" -eq 24 ]; then
+            echo "Some files disappeared. Retrying synchronization..."
+
+            rsync -a --delete \
+              --exclude='.git/' \
+              --exclude='.github/' \
+              upstream/frontend/ ./
+
+            STATUS=$?
+          fi
+
+          exit "$STATUS"
 
       - name: Commit and push changes
         run: |
