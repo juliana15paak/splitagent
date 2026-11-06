@@ -1,0 +1,167 @@
+/* ============================================================
+   VisaoGeral — overview page
+   ============================================================ */
+.visao-geral {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+/* Page header */
+.visao-geral__page-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.visao-geral__eyebrow {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray);
+  font-weight: 400;
+}
+
+.visao-geral__title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.15;
+}
+
+/* ============================================================
+   Cash-squeeze alert card
+   ============================================================ */
+.visao-geral__alert-card {
+  background-color: #ffffff;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.visao-geral__alert-body {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+/* Warning icon circle */
+.visao-geral__alert-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--color-tertiary);
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.visao-geral__alert-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.visao-geral__alert-title {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.visao-geral__alert-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray);
+  line-height: 1.5;
+}
+
+/* Situation modifier — atenção (warning) */
+.visao-geral__alert-card--atencao {
+  border-color: var(--color-alert);
+}
+
+.visao-geral__alert-card--atencao .visao-geral__alert-icon {
+  background-color: var(--color-tertiary);
+  color: var(--color-primary);
+}
+
+/* Situation modifier — crítica (danger) */
+.visao-geral__alert-card--critica {
+  border-color: var(--color-danger);
+  background-color: #fff5f5;
+}
+
+.visao-geral__alert-card--critica .visao-geral__alert-icon {
+  background-color: var(--color-danger);
+  color: #ffffff;
+}
+
+/* CTA button — override width from btn--cta */
+.visao-geral__cta-btn {
+  width: 100%;
+  max-width: 22rem;
+  align-self: center;
+}
+
+/* Desktop: alert body + button side by side */
+@media (min-width: 768px) {
+  .visao-geral__alert-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
+
+  .visao-geral__alert-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .visao-geral__cta-btn {
+    flex-shrink: 0;
+    align-self: unset;
+    width: auto;
+    max-width: none;
+  }
+}
+
+/* ─── Skeleton placeholders ──────────────────────────────── */
+
+.visao-geral__summary-skeleton {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  background: #ffffff;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.visao-geral__summary-skeleton-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.visao-geral__chart-skeleton {
+  background: #ffffff;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+}
+
+.visao-geral__stale-error {
+  font-size: var(--font-size-xs);
+  color: var(--color-alert);
+  margin-top: var(--space-1);
+}
